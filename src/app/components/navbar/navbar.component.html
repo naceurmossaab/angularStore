@@ -1,0 +1,17 @@
+<nz-layout>
+  <nz-header>
+    <div class="logo-section">
+      <div class="logo">E-Commerce Dashboard</div>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        <li nz-menu-item [routerLink]="'/products'">Products</li>
+        <li nz-menu-item [routerLink]="'/cart'">
+          Cart
+          <nz-badge [nzCount]="cartItemCount" style="margin-left: 8px;"></nz-badge>
+        </li>
+      </ul>
+    </div>
+    <div class="cart-status">
+      Total: {{ totalPrice | currency }}
+    </div>
+  </nz-header>
+</nz-layout>

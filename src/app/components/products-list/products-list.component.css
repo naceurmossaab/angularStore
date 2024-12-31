@@ -1,0 +1,30 @@
+.top-section {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 400px;
+}
+
+.search-bar .orderBy {
+  width: 150px;
+}
+
+td button {
+  cursor: pointer;
+}
+
+td button:disabled {
+  color: silver;
+  cursor: not-allowed;
+}

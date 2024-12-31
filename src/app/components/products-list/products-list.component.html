@@ -1,0 +1,41 @@
+<div class="top-section">
+  <div class="search-bar">
+    <input nz-input nzSize="large" placeholder="Search by name or category" [(ngModel)]="searchTerm" (input)="filterProducts()" />
+    <nz-select nzSize="large" class="orderBy" [(ngModel)]="sortOrder" nzPlaceHolder="Sort by price" (ngModelChange)="sortProducts()">
+      <nz-option nzValue="asc" nzLabel="Ascending"></nz-option>
+      <nz-option nzValue="desc" nzLabel="Descending"></nz-option>
+    </nz-select>
+  </div>
+  <button nz-button nzSize="large" nzType="primary">
+    Add product
+  </button>
+</div>
+
+<nz-table #basicTable [nzData]="products" [nzBordered]="true" [nzLoading]="loading" [nzSize]="'middle'"
+  [nzShowPagination]="false">
+  <thead>
+    <tr>
+      <th nzWidth="25%">Name</th>
+      <th nzWidth="15%">Price</th>
+      <th nzWidth="20%">Category</th>
+      <th nzWidth="10%">Availability</th>
+      <th nzWidth="10%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.name }}</td>
+      <td>{{ product.price | currency }}</td>
+      <td>{{ product.category }}</td>
+      <td>
+        <nz-tag [nzColor]="product.availability ? 'green' : 'red'">
+          {{ product.availability ? 'In Stock' : 'Out of Stock' }}
+        </nz-tag>
+      </td>
+      <td>
+        <button nz-button nzType="default" (click)="addToCart(product)" [disabled]="!product.availability">Add to Cart</button>
+      </td>
+
+    </tr>
+  </tbody>
+</nz-table>

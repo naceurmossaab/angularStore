@@ -1,0 +1,24 @@
+nz-header {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+nz-header, .logo-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 30px;
+}
+
+.cart-status {
+  float: right;
+  color: white;
+  font-weight: bold;
+}
