@@ -4,7 +4,8 @@ nz-header {
   z-index: 1000;
 }
 
-nz-header, .logo-section {
+nz-header,
+.logo-section {
   display: flex;
   justify-content: space-between;
   align-items: center;

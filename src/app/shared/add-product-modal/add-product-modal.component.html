@@ -1,0 +1,62 @@
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Add New Product" (nzOnOk)="handleOk()" (nzOnCancel)="handleCancel()" [@fadeIn]>
+  <form nz-form [formGroup]="addProductForm" *nzModalContent @fadeIn>
+    <nz-form-item nz-row>
+      <nz-form-label nz-col [nzSpan]="6">
+        <label for="name">Name</label>
+      </nz-form-label>
+      <nz-form-control nz-col [nzSpan]="18">
+        <input id="name" nz-input formControlName="name" placeholder="Enter product name" />
+        <div *ngIf="addProductForm.get('name')?.invalid && addProductForm.get('name')?.touched" class="error">
+          Name is required.
+        </div>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <nz-form-label nz-col [nzSpan]="6">
+        <label for="price">Price</label>
+      </nz-form-label>
+      <nz-form-control nz-col [nzSpan]="18">
+        <input id="price" nz-input type="number" formControlName="price" placeholder="Enter product price" />
+        <div *ngIf="addProductForm.get('price')?.invalid && addProductForm.get('price')?.touched" class="error">
+          Price must be a positive number.
+        </div>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <nz-form-label nz-col [nzSpan]="6">
+        <label for="category">Category</label>
+      </nz-form-label>
+      <nz-form-control nz-col [nzSpan]="18">
+        <nz-select id="category" formControlName="category" placeholder="Select a category">
+          <nz-option nzValue="Electronics" nzLabel="Electronics"></nz-option>
+          <nz-option nzValue="Clothing" nzLabel="Clothing"></nz-option>
+          <nz-option nzValue="Home" nzLabel="Home"></nz-option>
+        </nz-select>
+        <div *ngIf="addProductForm.get('category')?.invalid && addProductForm.get('category')?.touched" class="error">
+          Category is required.
+        </div>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <nz-form-label nz-col [nzSpan]="6">
+        <label for="description">Description</label>
+      </nz-form-label>
+      <nz-form-control nz-col [nzSpan]="18">
+        <textarea id="description" nz-input formControlName="description"
+          placeholder="Enter product description"></textarea>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row>
+      <nz-form-label nz-col [nzSpan]="6">
+        <label>Availability</label>
+      </nz-form-label>
+      <nz-form-control nz-col [nzSpan]="18">
+        <nz-switch formControlName="availability"></nz-switch>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-modal>

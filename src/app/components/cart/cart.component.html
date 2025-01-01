@@ -1,1 +1,26 @@
-<p>cart works!</p>
+<nz-table [nzData]="cartItems" [nzBordered]="true" [nzSize]="'middle'" [nzShowPagination]="false">
+  <thead>
+    <tr>
+      <th nzWidth="40%">Name</th>
+      <th nzWidth="20%">Price</th>
+      <th nzWidth="20%">Quantity</th>
+      <th nzWidth="20%">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of cartItems">
+      <td>{{ item.name }}</td>
+      <td>{{ item.price | currency }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>
+        <button nz-button (click)="removeItem(item.id)">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+<div class="cart-summary">
+  <span>Total Price: {{ totalPrice | currency }}</span>
+  <button nz-button nzType="default" (click)="clearCart()">
+    <span>Clear All</span>
+  </button>
+</div>

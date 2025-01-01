@@ -9,6 +9,8 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { CurrencyPipe, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
+import { AddProductModalComponent } from '../../shared/add-product-modal/add-product-modal.component';
+import { ProductComponent } from './product.component';
 
 @Component({
   selector: 'app-products-list',
@@ -16,12 +18,13 @@ import { CartService } from '../../services/cart.service';
   imports: [
     NzInputModule,
     NzTableModule,
-    CurrencyPipe,
     NzTagModule,
     FormsModule,
     NgFor,
     NzSelectModule,
-    NzButtonModule
+    NzButtonModule,
+    AddProductModalComponent,
+    ProductComponent
   ],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css'
@@ -75,8 +78,14 @@ export class ProductsListComponent {
     this.sortProducts(); // Apply sorting
   }
 
-  addToCart(product: any): void {
-    this.cartService.addToCart(product);
+  addProduct(newProduct: IProduct): void {
+    this.service.addProduct(newProduct).subscribe({
+      next: (data) => {
+        this.products = [data, ...this.products];
+      },
+      error: (error) => {
+        console.error('There was an error!', error);
+      }
+    });
   }
-
 }

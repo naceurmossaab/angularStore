@@ -1,12 +1,15 @@
 <div class="top-section">
   <div class="search-bar">
-    <input nz-input nzSize="large" placeholder="Search by name or category" [(ngModel)]="searchTerm" (input)="filterProducts()" />
-    <nz-select nzSize="large" class="orderBy" [(ngModel)]="sortOrder" nzPlaceHolder="Sort by price" (ngModelChange)="sortProducts()">
+    <input nz-input nzSize="large" placeholder="Search by name or category" [(ngModel)]="searchTerm"
+      (input)="filterProducts()" />
+    <nz-select nzSize="large" class="orderBy" [(ngModel)]="sortOrder" nzPlaceHolder="Sort by price"
+      (ngModelChange)="sortProducts()">
       <nz-option nzValue="asc" nzLabel="Ascending"></nz-option>
       <nz-option nzValue="desc" nzLabel="Descending"></nz-option>
     </nz-select>
   </div>
-  <button nz-button nzSize="large" nzType="primary">
+  <app-add-product-modal #addProductModal (productAdded)="addProduct($event)"></app-add-product-modal>
+  <button nz-button nzSize="large" nzType="primary" (click)="addProductModal.showModal()">
     Add product
   </button>
 </div>
@@ -23,19 +26,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{ product.name }}</td>
-      <td>{{ product.price | currency }}</td>
-      <td>{{ product.category }}</td>
-      <td>
-        <nz-tag [nzColor]="product.availability ? 'green' : 'red'">
-          {{ product.availability ? 'In Stock' : 'Out of Stock' }}
-        </nz-tag>
-      </td>
-      <td>
-        <button nz-button nzType="default" (click)="addToCart(product)" [disabled]="!product.availability">Add to Cart</button>
-      </td>
-
-    </tr>
+    <tr *ngFor="let product of products" app-product [product]="product"></tr>
   </tbody>
 </nz-table>

@@ -1,74 +1,100 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Wireless Mouse",
       "price": 25.99,
       "category": "Electronics",
       "availability": true
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Gaming Keyboard",
       "price": 45.99,
       "category": "Electronics",
       "availability": false
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Coffee Mug",
       "price": 9.99,
       "category": "Kitchenware",
       "availability": true
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Notebook",
       "price": 3.49,
       "category": "Stationery",
       "availability": true
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Desk Chair",
       "price": 119.99,
       "category": "Furniture",
       "availability": "Limited Stock"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Bluetooth Speaker",
       "price": 39.99,
       "category": "Electronics",
       "availability": true
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Yoga Mat",
       "price": 19.99,
       "category": "Fitness",
       "availability": true
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Air Purifier",
       "price": 89.99,
       "category": "Home Appliances",
       "availability": false
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "LED Desk Lamp",
       "price": 15.99,
       "category": "Lighting",
       "availability": true
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Running Shoes",
       "price": 59.99,
       "category": "Footwear",
       "availability": true
+    },
+    {
+      "id": "1735729436531",
+      "name": "Elnasser Mossaab",
+      "price": 123,
+      "category": "Electronics",
+      "description": "volem volem volem",
+      "availability": true
+    }
+  ],
+  "cart": [
+    {
+      "id": "9",
+      "name": "LED Desk Lamp",
+      "price": 15.99,
+      "category": "Lighting",
+      "availability": true,
+      "quantity": 4
+    },
+    {
+      "id": "7",
+      "name": "Yoga Mat",
+      "price": 19.99,
+      "category": "Fitness",
+      "availability": true,
+      "quantity": 6
     }
   ]
 }
