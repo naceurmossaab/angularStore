@@ -1,4 +1,4 @@
-<nz-modal [(nzVisible)]="isVisible" nzTitle="Add New Product" (nzOnOk)="handleOk()" (nzOnCancel)="handleCancel()" [@fadeIn]>
+<nz-modal nzWidth="450px" [(nzVisible)]="isVisible" nzTitle="Add New Product" (nzOnOk)="handleOk()" (nzOnCancel)="handleCancel()" [@fadeIn]>
   <form nz-form [formGroup]="addProductForm" *nzModalContent @fadeIn>
     <nz-form-item nz-row>
       <nz-form-label nz-col [nzSpan]="6">
